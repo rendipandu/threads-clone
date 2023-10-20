@@ -32,7 +32,7 @@ const Page = async ({ params }: { params: { id: string } }) => {
                 />
             </div>
 
-            <div className="mt-7">
+            <div className="mt-5">
                 <Comment
                     threadId={thread.id}
                     currentUserImg={userInfo.image}
@@ -40,7 +40,7 @@ const Page = async ({ params }: { params: { id: string } }) => {
                 />
             </div>
 
-            <div className="mt-10">
+            <div className="mt-5">
                 {thread.children.map((childItem: any) => (
                     <ThreadCard
                         key={childItem._id}

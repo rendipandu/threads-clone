@@ -9,11 +9,9 @@ import { zodResolver } from "@hookform/resolvers/zod";
 
 import { usePathname, useRouter } from "next/navigation";
 
-// import { updateUser } from "@/lib/actions/user.action";
 import { CommentValidation } from "@/lib/validations/thread";
 import Image from "next/image";
-import { addCommmentToThread } from "@/lib/actions/thread.actions";
-// import { createThread } from "@/lib/actions/thread.action";
+import { addCommentToThread } from "@/lib/actions/thread.actions";
 
 interface Props {
     threadId: string,
@@ -33,7 +31,7 @@ const Comment = ({ threadId, currentUserImg, currentUserId }: Props) => {
     });
 
     const onSubmit = async (values: z.infer<typeof CommentValidation>) => {
-        await addCommmentToThread(threadId, values.thread, JSON.parse(currentUserId), pathname);
+        await addCommentToThread(threadId, values.thread, JSON.parse(currentUserId), pathname);
 
         form.reset();
     }
