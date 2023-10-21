@@ -1,6 +1,8 @@
-import { formatDateString } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
+
+import { formatDateString } from "@/lib/utils";
+import DeleteThread from "../forms/DeleteThread";
 
 interface Props {
     id: string;
@@ -106,7 +108,13 @@ const ThreadCard = ({
                     </div>
                 </div>
 
-                {/* TODO: Delete thread */}
+                <DeleteThread
+                    threadId={JSON.stringify(id)}
+                    currentUserId={currentUserId}
+                    authorId={author.id}
+                    parentId={parentId}
+                    isComment={isComment}
+                />
                 {/* TODO: Show comment logo */}
 
             </div>

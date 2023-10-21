@@ -1,12 +1,13 @@
 import Image from "next/image";
 import { currentUser } from "@clerk/nextjs";
-import { communityTabs } from "@/constants";
 
 import ProfileHeader from "@/components/shared/ProfileHeader";
 import ThreadsTab from "@/components/shared/ThreadsTab";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { fetchCommunityDetails } from "@/lib/actions/community.actions";
 import UserCard from "@/components/cards/UserCard";
+
+import { communityTabs } from "@/constants";
+import { fetchCommunityDetails } from "@/lib/actions/community.actions";
 
 async function Page({ params }: { params: { id: string } }) {
     const user = await currentUser();
@@ -70,11 +71,11 @@ async function Page({ params }: { params: { id: string } }) {
                         </section>
                     </TabsContent>
 
-                    <TabsContent value="requests" className="w-full text-light-1">
+                    <TabsContent value='requests' className='w-full text-light-1'>
                         <ThreadsTab
                             currentUserId={user.id}
                             accountId={communityDetails._id}
-                            accountType="Community"
+                            accountType='Community'
                         />
                     </TabsContent>
                 </Tabs>
